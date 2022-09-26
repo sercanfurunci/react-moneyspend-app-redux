@@ -1,0 +1,74 @@
+[
+  {
+    "id": 12,
+    "title": "Ekmek",
+    "price": 0.1,
+    "image": "https://migros-dali-storage-prod.global.ssl.fastly.net/sanalmarket/product/05120000/05120000-a957e2.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Kola",
+    "price": 1,
+    "image": "https://cdn.dsmcdn.com/ty25/product/media/images/20201120/23/29453049/92982238/1/1_org_zoom.jpg"
+  },
+  {
+    "id": 1,
+    "title": "Sakız",
+    "price": 0.1,
+    "image": "http://www.icerir.com/wp-content/uploads/2018/10/Saadet-Ek%C5%9Fiy%C3%BCz-Tutti-Frutti-Aromal%C4%B1-Sak%C4%B1z.jpg"
+  },
+  {
+    "id": 6,
+    "title": "1 TL",
+    "price": 0.05,
+    "image": "https://iasbh.tmgrup.com.tr/802b79/0/0/0/0/0/0?u=http://i.sabah.com.tr/sb/galeri/dunya/1-tlnin-diger-ulke-paralari-karsisindaki-degeri/1.jpg"
+  },
+  {
+    "id": 7,
+    "title": "100 TL",
+    "price": 5.40,
+    "image": "https://i.ibb.co/vPpNrdb/Ekran-Resmi-2021-04-16-13-38-07.png"
+  },
+  {
+    "id": 3,
+    "title": "Ayakkabı",
+    "price": 400,
+    "image": "http://cdn.shopify.com/s/files/1/0550/1003/3828/products/wmns-air-jordan-1-retro-high-og-tie-dye-denemezapt-961998.jpg?v=1645623446"
+  },
+  {
+    "id": 4,
+    "title": "Araba",
+    "price": 40000,
+    "image": "https://trthaberstatic.cdn.wp.trt.com.tr/resimler/1864000/togg-a-1864257.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Gemi",
+    "price": 80000000,
+    "image": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBUREREREhUSGBIRDxEREREYGBISERESGBQZGRgUGBgcIS4lHB4rIRgYJjgmKy8xNTU1GiQ7QDs0Py40NTEBDAwMEA8QGBISGjEhJCQ/MTE0NDExNDE0NDQ0NDQ0NDQxNDQ0NDE0NDQ0NDQ0NDQ0NDE2NDQxNDQ0NDQ0NDE0N//AABEIAJsBRQMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAABAgADBAUGB//EAD4QAAIBAgQCBwYEBgEDBQAAAAECAAMRBBIhMVFhBRNBcYGRoQYiMkKx8BRSwdFicoKSouGyBxXxIyQzU2P/xAAYAQEBAQEBAAAAAAAAAAAAAAAAAQIDBP/EACERAQEAAwACAgMBAQAAAAAAAAABAhESITFBUQMTYXFS/9oADAMBAAIRAxEAPwDxPlDm5iL5wgnnOjxIXliViBaw8oozc5Ch5wIxub21mhW9xRfUXBHjpM+XvhycjA0sp8N9xM1RTmPfxk14SD73kkCXAl4qrpr2CJp9iSw4D0lWEcgk2i5by3NyHpB4fSEJkkykR8smXnArsZLcvpLQDw+sIQ8IFOWECXilxjCmOMLpnynnGyk9o++8zRYRW8IVTkPHyy/tAU7/AFMttygKmBTlH3eHLLCn3pBk5QmlZWDLLQvKMYVSBDk5ekuC8owQcITSgU+6Epympaf3rIyRo0x5YMvOaCPu0y4vFCkAwUM2YZUb4WPMDccovhZN3ToYTobEVlz06bFDa1RilNGvfZ3IU7HYzqJ7F4xxdadMjiK+GIvwuHnmqLvULVKpDOx3sAdO7y8Jd1Y/KPKSeWrJLr277ewuPtdaGbW3u1cObd/vxG9iOkALnCvYcHosfIPcziqlthb0l+HxVSkSab1EJ3KOyE95BlTwfHdC4jDWNehVQEgBmRghJ2Ae2W+m15jNIT6ZiPadMf0XiVZHumHp52fKFNS90y66m6qf6hvPnK34fSSXa5YyXwzmjF6ublTuj9TzErLn5PvaSdEYYnbXwggYcvMeUYUz92kzczAXlZHLb/zJcSu/KHwMBi4kznnABy9Y4AgLfvkH3rDkEOWBAJCohCRgsCvIPu8ZU75ZaSGl+Go0sr9YXzW9wDW55m+glWReEW0mWA4ZR2Sddy+krKxTAtZ+X0lZMTNJ1kB8sIFpXmhzQGYxM0N5JALwgw5YwSUAGOokFPnGCcxAK+EtW3CVhI4WBZmHCVu8BvEPfIA7ziVD11Y/lp6Dm339J0cfXyUyb6nRe/jKsBQ6tBf4j7x7zM3zdOmPiXJcqWAA7I1zCXEGYTTmBJ4xXJsdeyNmEqxLWXvNpMrqLPb1NP8A9LoY7g4nEr/ap0HdamfOeavPSe0R6vDYPD/kTM38wRQT4lmnnbxj6az96QGOp74lzDcysNdaolxkzAZRfMbktbXaSZrnlBGxnzSBowSMKcrJQ0ZSIQgjBRAUgSZY9xJmECuHNCbRTaAc0maKWHCDPyEB80GeLnPKTN3Q0bPIXi5oM0A5jDmi5xJmEBryWgEMA2hCwXkvAcCC8UGGA4McNKYwMguBkErBjB5dCwR7ypXhLwGLRL30tIWErxD9XTLfM/up+pmcrqEm2YU+urgfJT1PAn/Z9BNdQi5luDo9VQzfO+vdfYeWsxkSYx0y8SYmNoukIptwPkYGQjcEeBmnNIAmfEUKfZnUsOV7n0Bj0UuwHjE6GfPi3qdiByP+A9LzGV8yN4Tddj2kxOesoPyoB4kk/tOUHluPfPVc/wAVvIW/SUBTNxnK7tMYJLGS0ImaSCSBcSIpcRLyXhk2eAtFJikyiy8OkoMkC4iKymKGMYPAQiC0sgyCRdkkjFIMsGwhtJYw5TBsMsmWMFkywbAKI4tFyyQizSA24RbwXlDZRDlEW87Ps30H+LqDOclFCM7/ADN/AnFjx7PIEsm7qOSAI6lZ9hf2Z6PdQFoqjBMiuhs1tNTe4Y6bsCZ5vpX/AKa1GX/2eOIF8wo1Vyo7W0zNTsP8D2cJnp1/Tft4ZEDaKCTwGp9JYuFc3Ko5C/EQrHL262Gk9Bi/YnpNBmdutyg2NN8xA291Ws3lPP4vovE0yxq0q+trColRATcaZhbs5mS56+Fn4f6tHRta9uqqLcXGZGpg+LWEyLSCVXp1HqZLqKblFOo0cG1r67frN3R9GmCbqc7BibkDIdgFuBcdt7X01h6TxSBqYKK7Wcsr++VGw1O1ztbhymeutXev4Sc242W7+fhMJ0O9WmtUMi03uVLkozKGtmtYjXvijoCpWrJmaitNdAmdWcqCdAFuNSOOxE5lPAvXrV0pBVFJyAvur7rM2UAbn4TNLdHYhairWPVUwtkqMpIZr/DceJvyi+W5hjLt6SnhMLtiDWZgzAIpWkp7BuCWO1iGA17bTtV8fhKVJaNDBjQklqlOlWe5N9esYFv7p4X8LiQj9XWR1KlRlc6m1tmA5+U6eDxnSZCqKGIcEWAeiwU25sohrmb26D4qgfio0wf5MXh7af8A5vVT0mjo3ozD4qoKaMys3atXD1gv9DqlQjwJiYUYt7dbgaQB+YVaFHxIz3nRXotW1YJTI1FqoqEf2qT6xo5jz3tr0UOjiyioHY0S4ITIUzEqoOpvcieR9n2yrUbtZlUeA/3PU+1HQdWv7q16BBcEu71SQij3Rqt+HlMPRvRmHwj0nq4tX6qqlTq1QKHKvmyksx0NgNtrySM446trf0F7J18bTaoM9JwxulejVpIw3DJUOjC3LQgjaxL1/YbHIfdpLUGt2pulhrb58pOt9uBndxP/AFJBJ6tDfiqXJ/qacTG+32Ibc5RwZ9f7VvNdM3DH7cTHdHV8OQK9KohO2dSFPINsZjJM0dI9OviAA+ZgrZhYdWoNrbkk9vCYUc9v1v6zWNlcssdelt5ImaSVgM8l42WC0oF5LyEQQDeSCS8CSXkhtAXNGDwZZMsCwPDeVWkvIHLRbwR0ps2wPf2ecBbyXmyj0czf6ms9EG1wyqQfidc6+IuBM3OLI48Zly6sQo4sQv1llXBurBS1N00v1b1Efbgcy8NufhSvQTXvkRATcl2Zz5+59Dv5unWYT5pTiqY3qL/SGf1AtDTxlImwWs2o+ELfe21+cuTolEILVBcW0GW99Nbqt+zjx4xnTDJbNdsu2bW2gGmYk9g8pnqrMMf9asKcPU0DANa+V2CtsNbX/iH2J0aWNaiAqOhVdluDbuInBbpamgsiDlufTQTLU6db5QF7rL9JPLUxs9Pc4b2nYbq9772Yr5gTuYL2rDWF9e/9J8jTpJ3bT3uKe81x4azp4TFUnIV0CPzdWO1x7pIfUcAd421ux9iwvtFft0vxnVodOKe36GfGVLrY03cDcb/Qy6n0pXT5wR23EdQmeL63jxg6itUrUKDFV+JkpljewsGtcX0E8e2HwgbN+HojgMuZR3KdBPKYr2iruoQJoNScxAJ8pznxldvmVe4XPmTHULni9wyYVSW/D4W5OYuaVIuWve+Yre/jDX9oKaW1UZQQNhYHcDhPn752+Ko57jb6RDQQanzJk2n7J8R7Gt7ZooIVib9i3IPlObU9rXPwq59B6medbEIvaL8BrE/Fk/Ah8bARus95fTuP7RYl9gq99z+0y1eka7/FWI5LYTm9Y7aXUcgCzS1ME7bhvE5R5CPJvKpUqKfieo54FjbylYcD4UUDiZup9GgfEwHcP1N5K9FFC5dwwJZjcd2u8sx2a/6rH1bsPeLW/tWGlQU3tvY2IF9baXJ58uyWXHMm97kkC999dYVJYhRrwAsqzpMcZ/WbljPXlYmRANMz9pPvEa7W2Eoe7Ek9pll8hIa2htYa28t4LyueWVvtXlMksvJCbVXkltpLSoqhtLIICBYcsOaDNAOWELELyZ5BZaS0KUyddhxOgli5BxY8BrJcpCY2qlQtsLy9MGTufAan9ppSjUYXyhF4uQPISMET43Zz+VfdX78Ji5WtzBKeGRdyo7/fby7JrpsN0R2/ib3VmWnXY6UqajnbMfMy38JVqa1HtyvczN/rWpPa2piWHxPTTkgzN5/7mV8ShOgqOeLE28hNSdHIu92PPQS9cq/CAO4Sbh1J6YUFZvhVUXuCn9469HX1qOSeAmpq0qfEc5Np1fhnxXRatYo9Sm4FsysbMLg2ZTow0GnKcmpgKgYLURWQm3XUwA682pkgHuFu+dV8WOMzVMdLLVxzyjlf9mYk2U2v8TMtPt/KM52423l9LoRR8TJuDZVzeF6hYenZLKmO5zM+O5xur1lW9cFRUAEF7ACzszLp/D8PpLFxCILIFUDsUBR5Ccbr2bYGWph3bU6DiYSy33XQfHjslL40mZsiL8VQE9oW7n/G8IdPlR25myj9/SNLMBfFE9vlcxDUY7KT36RyzHZVXwzHzP7SxMIz7liPTyGkvLUwrI7PsXVeQ3kTDZvztzOg9f2naw3RYHYJryog1tLMWuZPdcih0ax2CqPM+v7TWnRyj4iT37eW0tq9IjZRMVTFM3aB6zUxZ6xnptGRBYAaSh8Z2D01mF3vuSfp5RbkzWmb+S1e+IY9oHqZQX7fU6wWklc9mzcYGF9oJIEC27dY8rK63jQGvJFkgXZoM0SG0rIlopMNpLSBCZIUUubU1LW3I0Ud7HQTVTwqj/5Hv/AnujuL7nwkuUjcxtZrAGzHX8g95/IbeNpso4RzqECD87kZvAbDwBjJilpjLSRU7hdvPeEU6tTU3APa053K1rmT2JoU11qOzngNF9f2jrjLe7SQL3C7ecsp4BF1clj5CX9aiDSw7pna3KfHlnXC1KmtRrd5uZqpYNE7Mx4n9pmqdIqO0ecyv0lf4QT4GTdZtyrtGqBoLAcNpS+KA7ZxHxTtsp8ZUyVW30EaTn7dd8comWp0kBOU6KPjqqDwzLfy3ld6Y26x+4ED/K0umpg3VOlOcobHM2wY+ErV/wAtNQOLG/oB+ssVXbdgP5VA+tzHLUwv0Qda3y275U9Oxs9RFPC4zeW80/g83xFmv2MWYeR0lqYQDQADuEvLUwYQqdnWP3KVH+Vo6KflRF4FjmPkP3nTXDW7I3VKu5Al5XWM91z1Rz89uSqqjz1PrIMFf4rtbtYlz/lOh1iDie4SfiB8q+c1yneM9KaeF7LTQmFt2Qdc55dwgyFtyTLyxfzfUWe4u5BPAawHHgfCviYFw94TQA3P7ecsjN/JlVNTFu25lVmPE8/9mXM6j4R4yp3J3/1KxtWy84uWNBBsLQQ2gtKoSQ5ZMsjIXkhyw5YXYSRgIbQbJJLMskGwAj2gVZfRxVOncu9Mc7O7DuyyZZaSS1U1Mi19L7X0J7huZamAY6lHbgGGRfI/qTM79KIGuhrNxKplv/daXf8AeTpagzc3qKPQBpzuWVdccL9Nn4N2sHemijZQcx8hpIcGo/8AsbuGUHzmM9N1zotOgo7mc+eYD0lFTG4h96jDkqU1H0J9ZNVvmuhnZNEQDmdT+sSriHGrOiDnYepM5hwrv8b1W5F2t5XhTo9R8qjw1jlP1/dXPjE7a2b+W7f8QZScVT7Fqt3iw/yImlMKo7R5GOtFeEvK84z5YvxZ+SioHFm18gP1k/EVj+RRyQk+ZJnQWmvD1hIUb5R4ia5N4xzClVt3fwIT/iBAOj82rXbm12PrOicQo2N+4StsVwB8TLyd4z1FNPAAdn0EuXCCVGux2sO4fvFJY7kxyl/JWvq0Xcj0EhroNte68yLSMsWhLzGbnktOL4L+kU4pzwEi0JYtICXSXK35UZmPaYVpnhNaqojBuAhlQlAy1aNt4+p/1FZ1Xc68BqYNGCgRswGpsO+ZHxJ+UW57mVFr6mVNtb4nh5nbymdnJ3ld4QYQ0BEIkkQloDLIpEq7LIZCILQJeS8lobQBeSS0kCXhBiwyBryRbyQLRGBlQaHNKizKOAkFh8qxQYbyaamVnqrAydq28jLAU7pmkjR1ftpITe48xK2qIO0nulJEQiU6WtXHyg+JtK2rOdtO4X+sW9oy1SOwesLsrZm3LSCnLVxHKMcT/CINwi04RS5SfiDykNXlBuGyAcIbrz8ogqchJ13IQbWB+AhBP2JX154CH8SeC+sG1gU8TLFpfe0ynFN2WHcIjOTuSe+DbaXRe0eGsrbFDsXxP7CZLySJtc+IY9thwGkriwyqkkkkMpCILRhAIkktJaESSSQwBaS0kECSSGAmATBFJgvCmggvJeBLSSXkgG8IgEMBgY4MrhEB4YohkRDFIjwQK7SESwxTKpLSWjSQBaS0MECSSSQBJJJAEkkYQABCFhEcQFCw5Y4kg2W0lpZJIhMsmWEwQJaAiGCBIJJIVIITBKARARDJAS0FpYYsBLSWjwQFkjSQP//Z"
+  },
+  {
+    "id": 8,
+    "title": "iPhone 14 Pro Max",
+    "price": 1099,
+    "image": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-14-pro-model-select-202209-6-7inch?wid=5120&hei=2880&fmt=jpeg&qlt=90&.v=1660754175027"
+  },
+  {
+    "id": 9,
+    "title": "Çanta",
+    "price": 1500000,
+    "image": "https://akn-mudo.b-cdn.net/products/2021/12/10/426128/0b1702a9-0d9e-42eb-b552-11880bb8a184.jpg"
+  },
+  {
+    "id": 10,
+    "title": "Yürüyen Uçah",
+    "price": 157878777,
+    "image": "https://i.ytimg.com/vi/N4u_pKUmxmg/mqdefault.jpg"
+  },
+  {
+    "id": 11,
+    "title": "Burj Khalifa",
+    "price": 1500000000,
+    "image": "https://upload.wikimedia.org/wikipedia/tr/thumb/2/2f/Burj_Khalifa_building.jpg/270px-Burj_Khalifa_building.jpg"
+  }
+]
