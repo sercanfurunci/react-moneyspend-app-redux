@@ -1,5 +1,5 @@
 const moneyFormat = (money) => {
-    return money.toLocaleString()
-}
+  return money?.toLocaleString();
+};
 
-export {moneyFormat}
+export { moneyFormat };

@@ -1,3 +1,7 @@
+.App {
+    text-align: center;
+}
+
 .header {
     color: #fff;
     background-color: #2ecc71;
@@ -13,6 +17,8 @@
     z-index: 9999;
 }
 
-.App {
-    text-align: center;
-}
+
+
+
+
+
