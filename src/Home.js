@@ -5,19 +5,16 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useSite } from "./context/SiteContext";
 import AppModal from "./AppModal";
+import { useDispatch, useSelector } from "react-redux";
+import { setTotal } from "./stores/total";
 
 export default function Home() {
-  const {
-    setProducts,
-    setBasket,
-    setTotal,
-    basket,
-    products,
-    total,
-    money,
-    admin,
-      basketItem
-  } = useSite();
+  const { setProducts, products } = useSite();
+
+  const admin = useSelector((state) => state.admin.admin);
+  const total = useSelector((state) => state.total.total);
+  const basket = useSelector((state) => state.basket.basket);
+  const dispatch = useDispatch();
 
   const getData = async () => {
     const result = await axios("https://jsonplaceholder.typicode.com/photos");
@@ -29,13 +26,15 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    setTotal(
-      basket.reduce((acc, item) => {
-        return (
-          acc +
-          item.amount * products.find((product) => product.id === item.id).id
-        );
-      }, 0)
+    dispatch(
+      setTotal(
+        basket.reduce((acc, item) => {
+          return (
+            acc +
+            item.amount * products.find((product) => product.id === item.id).id
+          );
+        }, 0)
+      )
     );
   }, [basket]);
 
@@ -49,22 +48,17 @@ export default function Home() {
       )}
 
       <div className="container products">
-        {products.slice(4984, 5005).map((product,index) => (
+        {products.slice(4984, 5005).map((product, index) => (
           <Product //todo context
             key={index}
-            total={total}
-            money={money}
-            basket={basket}
-            setBasket={setBasket}
             product={product}
-            admin={admin}
             products={products}
             setProducts={setProducts}
           />
         ))}
       </div>
 
-      {total > 0  && !admin && <Basket />}
+      {total > 0  && <Basket />}
     </>
   );
 }

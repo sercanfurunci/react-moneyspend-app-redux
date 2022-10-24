@@ -1,20 +1,26 @@
 import { moneyFormat } from "../helpers";
-import { useSite } from "../context/SiteContext";
 import "../css/Header.css";
+import { setMoney } from "../stores/money";
+import { useDispatch, useSelector } from "react-redux";
+import { setAdmin } from "../stores/admin";
 
 function Header() {
-  const { total, money, setMoney, admin, setAdmin } = useSite();
+  const dispatch = useDispatch();
+
+  const money = useSelector((state) => state.money.money);
+  const admin = useSelector((state) => state.admin.admin);
+  const total = useSelector((state) => state.total.total);
 
   const loginHandle = () => {
-    setAdmin(true);
+    dispatch(setAdmin(true));
   };
   const logoutHandle = () => {
-    setAdmin(false);
+    dispatch(setAdmin(false));
   };
 
   const changeMoney = (moneyHeader) => {
     if (moneyHeader >= 0) {
-      setMoney(+moneyHeader);
+      dispatch(setMoney(+moneyHeader));
     } else return false;
   };
 

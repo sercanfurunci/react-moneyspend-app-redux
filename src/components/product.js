@@ -1,81 +1,23 @@
 import { moneyFormat } from "../helpers";
-import alertify from "alertifyjs";
 import "../css/Product.css";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteBasket, addBasket,changeAmount } from "../stores/basket";
 
-function Product({
-  product,
-  total,
-  money,
-  basket,
-  setBasket,
-  admin,
-  setProducts,
-  products,
-}) {
+function Product({ product, setProducts, products }) {
+  const money = useSelector((state) => state.money.money);
+  const admin = useSelector((state) => state.admin.admin);
+  const total = useSelector((state) => state.total.total);
+  const basket = useSelector((state) => state.basket.basket);
   const basketItem = basket.find((item) => item.id === product.id);
 
-  const changeAmount = (targetValue) => {
-    const checkBasket = basket.find((item) => item.id === product.id);
+  const dispatch = useDispatch();
 
-    if (targetValue * product.id > money) {
-      alert("Paranız yetmiyor.");
-    } else {
-      if (targetValue > 0) {
-        if (checkBasket) {
-          checkBasket.amount = +targetValue;
-          setBasket([
-            ...basket.filter((item) => item.id !== product.id),
-            checkBasket,
-          ]);
-        } else {
-          setBasket([
-            ...basket,
-            {
-              id: product.id,
-              amount: +targetValue,
-            },
-          ]);
-        }
-      } else return false;
-    }
-  };
 
-  const addBasket = () => {
-    const checkBasket = basket.find((item) => item.id === product.id);
+const handleChange =(product,targetValue)=>{
+  const id1 = product.id
+  dispatch(changeAmount({id1,targetValue,money}))
 
-    // ürün daha önce eklenmiş
-    if (checkBasket) {
-      checkBasket.amount += 1;
-      setBasket([
-        ...basket.filter((item) => item.id !== product.id),
-        checkBasket,
-      ]);
-    } else {
-      setBasket([
-        ...basket,
-        {
-          id: product.id,
-          amount: 1,
-        },
-      ]);
-    }
-    alertify.success("Sepete eklendi");
-  };
-
-  const removeBasket = () => {
-    const currentBasket = basket.find((item) => item.id === product.id);
-    const basketWithoutCurrent = basket.filter(
-      (item) => item.id !== product.id
-    );
-    currentBasket.amount -= 1;
-    if (currentBasket.amount === 0) {
-      setBasket([...basketWithoutCurrent]);
-    } else {
-      setBasket([...basketWithoutCurrent, currentBasket]);
-    }
-    alertify.error("Sepetten çıkarıldı");
-  };
-
+}
   const removeProducts = () => {
     setProducts(
       products.filter((item) => {
@@ -109,7 +51,7 @@ function Product({
           <button
             className="sell-btn"
             disabled={!basketItem || basketItem.amount === 0}
-            onClick={removeBasket}
+            onClick={() => dispatch(deleteBasket(product.id))}
           >
             Sell
           </button>
@@ -118,14 +60,14 @@ function Product({
               type="text"
               min="0"
               value={(basketItem && basketItem.amount) || 0}
-              onChange={(e) => changeAmount(e.target.value)}
+              onChange={(e) => handleChange(product,e.target.value)}//todo
               disabled={admin}
             />
           </span>
           <button
-            className="buy-btn"
+            className="buy-btn "
             disabled={total + product.id > money || admin}
-            onClick={addBasket}
+            onClick={() => dispatch(addBasket(product.id))}
           >
             Buy
           </button>
