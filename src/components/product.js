@@ -15,7 +15,7 @@ function Product({ product, setProducts, products }) {
 
 const handleChange =(product,targetValue)=>{
   const id1 = product.id
-  dispatch(changeAmount({id1,targetValue,money}))
+  dispatch(changeAmount({id1,targetValue,money,total}))
 
 }
   const removeProducts = () => {

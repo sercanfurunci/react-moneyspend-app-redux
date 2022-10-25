@@ -51,10 +51,9 @@ const basket = createSlice({
       alertify.error("Sepetten çıkarıldı");
     },
     changeAmount: (state, action) => {
-      const { id1, targetValue, money } = action.payload;
-      //todo money kontrol
+      const { id1, targetValue, money, total } = action.payload;
       const checkBasket = state.basket.find((item) => item.id === id1);
-      if (targetValue * id1 > money) {
+      if (targetValue * id1 > money - total) {
         alert("Paranız yetmiyor");
       } else {
         if (targetValue >= 0) {
