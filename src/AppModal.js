@@ -56,7 +56,7 @@ const AppModal = () => {
 
 
   return (
-    <>
+    <React.Fragment>
       <Button type="primary" onClick={showModal}>
         Ürün ekle
       </Button>
@@ -90,14 +90,14 @@ const AppModal = () => {
             Kuralları okudum, kabul ediyorum.
           </Checkbox>
           {avatar && (
-            <>
+            <div>
               <h3>{avatar.name}</h3>
               {image && <img width="50%" src={image} alt="item" />}
-            </>
+            </div>
           )}
         </form>
       </Modal>
-    </>
+    </React.Fragment>
   );
 };
 export default AppModal;

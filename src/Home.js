@@ -6,14 +6,14 @@ import { useEffect } from "react";
 import { useSite } from "./context/SiteContext";
 import AppModal from "./AppModal";
 import { useDispatch, useSelector } from "react-redux";
-import { setTotal } from "./stores/total";
+import { setTotal } from "./store/actions/actions";
+import React from "react";
 
 export default function Home() {
   const { setProducts, products } = useSite();
 
-  const admin = useSelector((state) => state.admin.admin);
-  const total = useSelector((state) => state.total.total);
-  const basket = useSelector((state) => state.basket.basket);
+  const roots = useSelector((state) => state.roots);
+
   const dispatch = useDispatch();
 
   const getData = async () => {
@@ -26,30 +26,30 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    dispatch(
-      setTotal(
-        basket.reduce((acc, item) => {
-          return (
-            acc +
-            item.amount * products.find((product) => product.id === item.id).id
-          );
-        }, 0)
-      )
-    );
-  }, [basket]);
-
+    if (roots && roots.basket && products && products.length > 0) {
+      dispatch(
+          setTotal(
+              roots.basket.reduce((acc, item) => {
+                return (
+                    acc +
+                    item.amount * products.find((product) => product.id === item.id).id
+                );
+              }, 0)
+          )
+      );
+    }
+  }, [roots.basket]);
   return (
-    <>
+    <React.Fragment>
       <Header />
-      {admin && (
-        <>
-          <AppModal />
-        </>
-      )}
+      {roots.admin && (
 
+          <AppModal />
+
+      )}
       <div className="container products">
         {products.slice(4984, 5005).map((product, index) => (
-          <Product //todo context
+          <Product
             key={index}
             product={product}
             products={products}
@@ -57,8 +57,7 @@ export default function Home() {
           />
         ))}
       </div>
-
-      {total > 0  && <Basket />}
-    </>
+      {roots.total > 0 && <Basket />}
+    </React.Fragment>
   );
 }

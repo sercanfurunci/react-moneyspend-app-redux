@@ -1,23 +1,26 @@
 import { moneyFormat } from "../helpers";
 import "../css/Product.css";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteBasket, addBasket,changeAmount } from "../stores/basket";
+import { deleteBasket, addBasket,changeAmount } from "../store/actions/actions"
+import React from "react";
 
 function Product({ product, setProducts, products }) {
-  const money = useSelector((state) => state.money.money);
-  const admin = useSelector((state) => state.admin.admin);
-  const total = useSelector((state) => state.total.total);
-  const basket = useSelector((state) => state.basket.basket);
-  const basketItem = basket.find((item) => item.id === product.id);
+  const roots = useSelector((state) => state.roots);
+
+  const basketItem = roots?.basket?.find((item) => item.id === product.id);
 
   const dispatch = useDispatch();
 
 
 const handleChange =(product,targetValue)=>{
   const id1 = product.id
+  const money = roots.money
+  const total = roots.total
   dispatch(changeAmount({id1,targetValue,money,total}))
 
 }
+
+
   const removeProducts = () => {
     setProducts(
       products.filter((item) => {
@@ -27,9 +30,9 @@ const handleChange =(product,targetValue)=>{
   };
 
   return (
-    <>
+    <React.Fragment>
       <div className="product">
-        {admin && (
+        {roots.admin && (
           <button
             style={{
               backgroundColor: "red",
@@ -50,7 +53,7 @@ const handleChange =(product,targetValue)=>{
         <div className="actions">
           <button
             className="sell-btn"
-            disabled={!basketItem || basketItem.amount === 0}
+            /*disabled={!basketItem || basketItem.amount === 0}*/
             onClick={() => dispatch(deleteBasket(product.id))}
           >
             Sell
@@ -60,20 +63,20 @@ const handleChange =(product,targetValue)=>{
               type="text"
               min="0"
               value={(basketItem && basketItem.amount) || 0}
-              onChange={(e) => handleChange(product,e.target.value)}//todo
-              disabled={admin}
+              onChange={(e) => handleChange(product,e.target.value)}
+              disabled={roots.admin}
             />
           </span>
           <button
             className="buy-btn "
-            disabled={total + product.id > money || admin}
+            disabled={roots.total + product.id > roots.money || roots.admin}
             onClick={() => dispatch(addBasket(product.id))}
           >
             Buy
           </button>
         </div>
       </div>
-    </>
+    </React.Fragment>
   );
 }
 
