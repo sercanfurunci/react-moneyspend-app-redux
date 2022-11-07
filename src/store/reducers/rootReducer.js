@@ -2,7 +2,6 @@ import {
   SET_TOTAL,
   SET_MONEY,
   SET_ADMIN,
-  SET_BASKET,
   ADD_BASKET,
   DELETE_BASKET,
   CHANGE_AMOUNT,
@@ -17,6 +16,7 @@ const initialState = {
 };
 
 export const rootReducer = (state = initialState, action) => {
+  const checkBasket = state.basket.find((item) => item.id === action.payload);
   switch (action.type) {
     case SET_ADMIN:
       return {
@@ -29,23 +29,11 @@ export const rootReducer = (state = initialState, action) => {
         money: action.payload,
       };
     case SET_TOTAL:
-      console.log(action)
       return {
         ...state,
-        total: action.payload
+        total: action.payload,
       };
-
-    case SET_BASKET:
-      return {
-        ...state,
-        basket: action.payload,
-      };
-    case ADD_BASKET: //todo
-      const checkBasket = state.basket.find(
-        (item) => item.id === action.payload
-      );
-      console.log(checkBasket)
-      // ürün daha önce eklenmiş
+    case ADD_BASKET:
       if (checkBasket) {
         checkBasket.amount += 1;
         return {
@@ -67,7 +55,7 @@ export const rootReducer = (state = initialState, action) => {
         };
       }
 
-    case DELETE_BASKET: //todo
+    case DELETE_BASKET:
       const currentBasket = state.basket.find(
         (item) => item.id === action.payload
       );
@@ -88,7 +76,7 @@ export const rootReducer = (state = initialState, action) => {
         };
       }
 
-    case CHANGE_AMOUNT: //todo
+    case CHANGE_AMOUNT:
       const { id1, targetValue, money, total } = action.payload;
 
       if (targetValue * id1 > money - total) {
@@ -98,6 +86,7 @@ export const rootReducer = (state = initialState, action) => {
           if (checkBasket) {
             checkBasket.amount = +targetValue;
             return {
+              ...state,
               basket: [
                 ...state.basket.filter((item) => item.id !== id1),
                 checkBasket,
@@ -105,8 +94,8 @@ export const rootReducer = (state = initialState, action) => {
             };
           } else {
             return {
+              ...state,
               basket: [
-                ...state.basket,
                 {
                   id: id1,
                   amount: +targetValue,

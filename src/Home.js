@@ -31,12 +31,11 @@ export default function Home() {
         item.amount * products.find((product) => product.id === item.id).id
       );
     }, 0);
-    console.log(toplam)
+
     dispatch(setTotal(toplam));
   };
 
   useEffect(() => {
-    console.log(roots.total)
     totaliHesapla();
   }, [roots.basket]);
   return (

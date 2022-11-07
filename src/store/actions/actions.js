@@ -1,7 +1,6 @@
 export const SET_TOTAL = "SET_TOTAL";
 export const SET_MONEY = "SET_MONEY";
 export const SET_ADMIN = "SET_ADMIN";
-export const SET_BASKET = "SET_BASKET";
 export const ADD_BASKET = "ADD_BASKET";
 export const DELETE_BASKET = "DELETE_BASKET";
 export const CHANGE_AMOUNT = "CHANGE_AMOUNT";
@@ -13,29 +12,24 @@ export const setMoney = (data) => ({
 });
 export const setTotal = (data) => ({
   type: SET_TOTAL,
-  payload:data
+  payload: data,
 });
 
 export const setAdmin = () => ({
   type: SET_ADMIN,
 });
 
-export const setBasket = (data) => ({
-  type: SET_BASKET,
-  payload:data
-});
-
 export const addBasket = (data) => ({
   type: ADD_BASKET,
-  payload:data
+  payload: data,
 });
 export const deleteBasket = (data) => ({
   type: DELETE_BASKET,
-  payload:data
+  payload: data,
 });
 export const changeAmount = (data) => ({
   type: CHANGE_AMOUNT,
-  payload:data
+  payload: data,
 });
 
 export const resetBasket = () => ({
