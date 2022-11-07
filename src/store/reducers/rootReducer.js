@@ -78,10 +78,12 @@ export const rootReducer = (state = initialState, action) => {
       currentBasket.amount -= 1;
       if (currentBasket.amount === 0) {
         return {
+          ...state,
           basket: [...basketWithoutCurrent],
         };
       } else {
         return {
+          ...state,
           basket: [...basketWithoutCurrent, currentBasket],
         };
       }
