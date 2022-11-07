@@ -13,10 +13,16 @@ function Product({ product, setProducts, products }) {
 
 
 const handleChange =(product,targetValue)=>{
-  const id1 = product.id
+  const id = product.id
   const money = roots.money
   const total = roots.total
-  dispatch(changeAmount({id1,targetValue,money,total}))
+  console.log(targetValue)
+  if( targetValue !== "-" && targetValue !== "" && targetValue >=0) {
+    dispatch(changeAmount({id,targetValue,money,total}))
+  }else{//kontrol yapılacak
+    alert("Giremezsin")
+    return false;
+  }
 
 }
 
