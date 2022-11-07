@@ -53,7 +53,7 @@ const handleChange =(product,targetValue)=>{
         <div className="actions">
           <button
             className="sell-btn"
-            /*disabled={!basketItem || basketItem.amount === 0}*/
+            disabled={!basketItem || basketItem.amount === 0}
             onClick={() => dispatch(deleteBasket(product.id))}
           >
             Sell

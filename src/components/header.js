@@ -2,7 +2,6 @@ import { moneyFormat } from "../helpers";
 import "../css/Header.css";
 import { useDispatch, useSelector } from "react-redux";
 import  {setAdmin, setMoney} from "../store/actions/actions";
-import {useEffect} from "react";
 import React from "react";
 function Header() {
   const dispatch = useDispatch();

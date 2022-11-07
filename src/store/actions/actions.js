@@ -13,15 +13,16 @@ export const setMoney = (data) => ({
 });
 export const setTotal = (data) => ({
   type: SET_TOTAL,
-  payload: data,
+  payload:data
 });
 
 export const setAdmin = () => ({
   type: SET_ADMIN,
 });
 
-export const setBasket = () => ({
+export const setBasket = (data) => ({
   type: SET_BASKET,
+  payload:data
 });
 
 export const addBasket = (data) => ({

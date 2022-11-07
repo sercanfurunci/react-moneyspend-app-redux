@@ -9,8 +9,6 @@ import {
   RESET_BASKET,
 } from "../actions/actions";
 
-import { setBasket } from "../actions/actions";
-
 const initialState = {
   admin: false,
   basket: [],
@@ -31,23 +29,27 @@ export const rootReducer = (state = initialState, action) => {
         money: action.payload,
       };
     case SET_TOTAL:
+      console.log(action)
       return {
-        total: action.payload,
+        ...state,
+        total: action.payload
       };
+
     case SET_BASKET:
       return {
         ...state,
         basket: action.payload,
       };
     case ADD_BASKET: //todo
-      const checkBasket =
-        state.basket.length > 0 &&
-        state.basket.find((item) => item.id === action.payload);
-
+      const checkBasket = state.basket.find(
+        (item) => item.id === action.payload
+      );
+      console.log(checkBasket)
       // ürün daha önce eklenmiş
       if (checkBasket) {
         checkBasket.amount += 1;
         return {
+          ...state,
           basket: [
             ...state.basket.filter((item) => item.id !== action.payload),
             checkBasket,
@@ -55,8 +57,8 @@ export const rootReducer = (state = initialState, action) => {
         };
       } else {
         return {
+          ...state,
           basket: [
-            ...state.basket,
             {
               id: action.payload,
               amount: 1,
@@ -72,11 +74,16 @@ export const rootReducer = (state = initialState, action) => {
       const basketWithoutCurrent = state.basket.filter(
         (item) => item.id !== action.payload
       );
+
       currentBasket.amount -= 1;
       if (currentBasket.amount === 0) {
-        setBasket([...basketWithoutCurrent]);
+        return {
+          basket: [...basketWithoutCurrent],
+        };
       } else {
-        setBasket([...basketWithoutCurrent, currentBasket]);
+        return {
+          basket: [...basketWithoutCurrent, currentBasket],
+        };
       }
 
     case CHANGE_AMOUNT: //todo
@@ -88,18 +95,22 @@ export const rootReducer = (state = initialState, action) => {
         if (targetValue >= 0) {
           if (checkBasket) {
             checkBasket.amount = +targetValue;
-            state.basket = [
-              ...state.basket.filter((item) => item.id !== id1),
-              checkBasket,
-            ];
+            return {
+              basket: [
+                ...state.basket.filter((item) => item.id !== id1),
+                checkBasket,
+              ],
+            };
           } else {
-            state.basket = [
-              ...state.basket,
-              {
-                id: id1,
-                amount: +targetValue,
-              },
-            ];
+            return {
+              basket: [
+                ...state.basket,
+                {
+                  id: id1,
+                  amount: +targetValue,
+                },
+              ],
+            };
           }
         } else return false;
       }

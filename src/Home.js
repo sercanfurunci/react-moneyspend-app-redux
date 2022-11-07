@@ -13,7 +13,6 @@ export default function Home() {
   const { setProducts, products } = useSite();
 
   const roots = useSelector((state) => state.roots);
-
   const dispatch = useDispatch();
 
   const getData = async () => {
@@ -25,28 +24,25 @@ export default function Home() {
     getData();
   }, []);
 
-  useEffect(() => {
-    if (roots && roots.basket && products && products.length > 0) {
-      dispatch(
-          setTotal(
-              roots.basket.reduce((acc, item) => {
-                return (
-                    acc +
-                    item.amount * products.find((product) => product.id === item.id).id
-                );
-              }, 0)
-          )
+  const totaliHesapla = () => {
+    const toplam = roots.basket.reduce((acc, item) => {
+      return (
+        acc +
+        item.amount * products.find((product) => product.id === item.id).id
       );
-    }
+    }, 0);
+    console.log(toplam)
+    dispatch(setTotal(toplam));
+  };
+
+  useEffect(() => {
+    console.log(roots.total)
+    totaliHesapla();
   }, [roots.basket]);
   return (
     <React.Fragment>
       <Header />
-      {roots.admin && (
-
-          <AppModal />
-
-      )}
+      {roots.admin && <AppModal />}
       <div className="container products">
         {products.slice(4984, 5005).map((product, index) => (
           <Product
