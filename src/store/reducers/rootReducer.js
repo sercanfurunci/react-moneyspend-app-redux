@@ -16,7 +16,7 @@ const initialState = {
 };
 
 export const rootReducer = (state = initialState, action) => {
-  const checkBasket = state.basket.find((item) => item.id === action.payload);
+  const checkBasket = state.basket?.find((item) => item.id === action.payload);
   switch (action.type) {
     case SET_ADMIN:
       return {
@@ -35,6 +35,7 @@ export const rootReducer = (state = initialState, action) => {
       };
     case ADD_BASKET:
       if (checkBasket) {
+        console.log("checked")
         checkBasket.amount += 1;
         return {
           ...state,
@@ -47,6 +48,7 @@ export const rootReducer = (state = initialState, action) => {
         return {
           ...state,
           basket: [
+            ...state.basket.filter((item) => item.id !== action.payload),
             {
               id: action.payload,
               amount: 1,
@@ -77,18 +79,19 @@ export const rootReducer = (state = initialState, action) => {
       }
 
     case CHANGE_AMOUNT:
-      const { id1, targetValue, money, total } = action.payload;
-
-      if (targetValue * id1 > money - total) {
+      const { id, targetValue, money, total } = action.payload;
+      console.log(action)
+      if (targetValue * id > money - total) {
         alert("Paranız yetmiyor");
       } else {
-        if (targetValue >= 0) {
+        if (targetValue) {
           if (checkBasket) {
+
             checkBasket.amount = +targetValue;
             return {
               ...state,
               basket: [
-                ...state.basket.filter((item) => item.id !== id1),
+                ...state.basket.filter((item) => item.id !== id),
                 checkBasket,
               ],
             };
@@ -97,9 +100,11 @@ export const rootReducer = (state = initialState, action) => {
               ...state,
               basket: [
                 {
-                  id: id1,
+                  id,
                   amount: +targetValue,
                 },
+                ...state.basket.filter((item) => item.id !== id),
+
               ],
             };
           }

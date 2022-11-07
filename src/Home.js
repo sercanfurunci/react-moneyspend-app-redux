@@ -25,7 +25,7 @@ export default function Home() {
   }, []);
 
   const totaliHesapla = () => {
-    const toplam = roots.basket.reduce((acc, item) => {
+    const toplam = roots.basket?.reduce((acc, item) => {
       return (
         acc +
         item.amount * products.find((product) => product.id === item.id).id
