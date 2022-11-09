@@ -13,6 +13,7 @@ export default function Home() {
   const { setProducts, products } = useSite();
 
   const roots = useSelector((state) => state.roots);
+  const baskets = useSelector(state=>state.baskets)
   const dispatch = useDispatch();
 
   const getData = async () => {
@@ -25,7 +26,7 @@ export default function Home() {
   }, []);
 
   const totaliHesapla = () => {
-    const toplam = roots.basket?.reduce((acc, item) => {
+    const toplam = baskets.basket?.reduce((acc, item) => {
       return (
         acc +
         item.amount * products.find((product) => product.id === item.id).id
@@ -37,7 +38,7 @@ export default function Home() {
 
   useEffect(() => {
     totaliHesapla();
-  }, [roots.basket]);
+  }, [baskets.basket]);
   return (
     <React.Fragment>
       <Header />

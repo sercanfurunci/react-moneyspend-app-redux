@@ -6,8 +6,8 @@ import React from "react";
 
 function Product({ product, setProducts, products }) {
   const roots = useSelector((state) => state.roots);
-
-  const basketItem = roots?.basket?.find((item) => item.id === product.id);
+  const baskets =  useSelector(state=>state.baskets)
+  const basketItem = baskets?.basket?.find((item) => item.id === product.id);
 
   const dispatch = useDispatch();
 

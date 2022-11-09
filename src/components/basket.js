@@ -11,13 +11,14 @@ function Basket() {
 
   const dispatch = useDispatch();
   const roots = useSelector((state) => state.roots);
+  const baskets = useSelector((state) => state.baskets);
 
   return (
     <React.Fragment>
       <div className="basket-container container">
         <h3>Alışveriş Detayları</h3>
         <ul>
-          {roots.basket?.map((item) => (
+          {baskets.basket?.map((item) => (
             <BasketItem
               key={item.id}
               item={item}
