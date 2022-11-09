@@ -1,6 +1,6 @@
-import { Button, Modal, Checkbox } from "antd";
 import React, { useEffect, useState } from "react";
 import { useSite } from "./context/SiteContext";
+import { Button, Modal, Checkbox } from "antd";
 import alertify from "alertifyjs";
 
 const AppModal = () => {

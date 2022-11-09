@@ -1,10 +1,10 @@
+import React from "react";
 import BasketItem from "./basketItem";
 import { moneyFormat } from "../helpers";
 import { useSite } from "../context/SiteContext";
-import "../css/Basket.css";
 import { useSelector, useDispatch } from "react-redux";
 import { resetBasket } from "../store/actions/actions";
-import React from "react";
+import "../css/Basket.css";
 
 function Basket() {
   const { products } = useSite();

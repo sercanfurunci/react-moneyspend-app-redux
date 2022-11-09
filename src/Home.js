@@ -1,13 +1,14 @@
+import React from "react";
 import Header from "./components/header";
 import Product from "./components/product";
 import Basket from "./components/basket";
+import AppModal from "./AppModal";
 import axios from "axios";
 import { useEffect } from "react";
 import { useSite } from "./context/SiteContext";
-import AppModal from "./AppModal";
 import { useDispatch, useSelector } from "react-redux";
 import { setTotal } from "./store/actions/actions";
-import React from "react";
+
 
 export default function Home() {
   const { setProducts, products } = useSite();

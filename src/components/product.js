@@ -1,8 +1,8 @@
+import React from "react";
 import { moneyFormat } from "../helpers";
-import "../css/Product.css";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteBasket, addBasket,changeAmount } from "../store/actions/actions"
-import React from "react";
+import "../css/Product.css";
 
 function Product({ product, setProducts, products }) {
   const roots = useSelector((state) => state.roots);

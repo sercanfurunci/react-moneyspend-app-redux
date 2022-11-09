@@ -1,5 +1,6 @@
-import "../css/BasketItem.css";
 import React from "react";
+import "../css/BasketItem.css";
+
 function BasketItem({ item, product }) {
   return (
     <React.Fragment>
