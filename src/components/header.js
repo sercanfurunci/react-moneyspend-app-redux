@@ -1,16 +1,17 @@
 import { moneyFormat } from "../helpers";
 import "../css/Header.css";
 import { useDispatch, useSelector } from "react-redux";
-import  {setAdmin, setMoney} from "../store/actions/actions";
+import { setAdmin, setMoney } from "../store/actions/actions";
 import React from "react";
+
 function Header() {
   const dispatch = useDispatch();
 
   const roots = useSelector((state) => state.roots);
 
   const toggleAdmin = () => {
-    dispatch(setAdmin())
-  }
+    dispatch(setAdmin());
+  };
 
   const changeMoney = (moneyHeader) => {
     if (moneyHeader >= 0) {
@@ -19,34 +20,37 @@ function Header() {
   };
 
   return (
-      <React.Fragment>
-        {roots.total > 0 && roots.money - roots.total !== 0 && (
-            <div className="header">
-              Harcayacak <span>$ {moneyFormat(roots.money - roots.total)}</span> paranız kaldı!
-            </div>
-        )}
-        {roots.total === 0 && (
-            <div className="header">
-              <div className="admin">
-                {(roots.admin && <button onClick={toggleAdmin}>Çıkış yap</button>) || (
-                    <button onClick={toggleAdmin}> Giriş yap</button>
-                )}
-              </div>
-              Harcamak için $
-              <span>
+    <React.Fragment>
+      {roots.total > 0 && roots.money - roots.total !== 0 && (
+        <div className="header">
+          Harcayacak <span>$ {moneyFormat(roots.money - roots.total)}</span>{" "}
+          paranız kaldı!
+        </div>
+      )}
+      {roots.total === 0 && (
+        <div className="header">
+          <div className="admin">
+            {(roots.admin && (
+              <button onClick={toggleAdmin}>Çıkış yap</button>
+            )) || <button onClick={toggleAdmin}> Giriş yap</button>}
+          </div>
+          Harcamak için $
+          <span>
             <input
-                className="header-input"
-                type="text"
-                min="0"
-                onChange={(e) => changeMoney(e.target.value)}
-                value={roots.money}
+              className="header-input"
+              type="text"
+              min="0"
+              onChange={(e) => changeMoney(e.target.value)}
+              value={roots.money}
             />
           </span>
-              paranız var!
-            </div>
-        )}
-        {roots.money - roots.total === 0 && <div className="header empty">Paran bitti!</div>}
-      </React.Fragment>
+          paranız var!
+        </div>
+      )}
+      {roots.money - roots.total === 0 && (
+        <div className="header empty">Paran bitti!</div>
+      )}
+    </React.Fragment>
   );
 }
 
