@@ -1,8 +1,10 @@
 import React from "react";
-import { moneyFormat } from "../helpers";
+import { moneyFormat } from "../helpers/moneyHelper";
 import { useDispatch, useSelector } from "react-redux";
-import { setAdmin, setMoney } from "../store/actions/actions";
+import { setAdmin } from "../store/actions/actions";
 import "../css/Header.css";
+import TranslateHelper from "../helpers/translateHelper";
+
 
 function Header() {
   const dispatch = useDispatch();
@@ -13,42 +15,55 @@ function Header() {
     dispatch(setAdmin());
   };
 
-  const changeMoney = (moneyHeader) => {
-    if (moneyHeader >= 0) {
-      dispatch(setMoney(+moneyHeader));
-    } else return false;
+  const leftMoney = moneyFormat(roots.money - roots.total);
+
+  const handleLangChange = (lang) => {
+    TranslateHelper.changeLanguage(lang);
   };
 
   return (
     <React.Fragment>
       {roots.total > 0 && roots.money - roots.total !== 0 && (
         <div className="header">
-          Harcayacak <span>$ {moneyFormat(roots.money - roots.total)}</span>{" "}
-          paranız kaldı!
+          {TranslateHelper.formatTranslate("header_spend", { leftMoney })}
         </div>
       )}
       {roots.total === 0 && (
         <div className="header">
           <div className="admin">
             {(roots.admin && (
-              <button onClick={toggleAdmin}>Çıkış yap</button>
-            )) || <button onClick={toggleAdmin}> Giriş yap</button>}
+              <button onClick={toggleAdmin}>
+                {TranslateHelper.translate("logout")}
+              </button>
+            )) || (
+              <button onClick={toggleAdmin}>
+                {TranslateHelper.translate("login")}
+              </button>
+            )}
           </div>
-          Harcamak için $
-          <span>
-            <input
-              className="header-input"
-              type="text"
-              min="0"
-              onChange={(e) => changeMoney(e.target.value)}
-              value={roots.money}
-            />
-          </span>
-          paranız var!
+          {TranslateHelper.formatTranslate("header_input", { leftMoney })}
         </div>
       )}
       {roots.money - roots.total === 0 && (
-        <div className="header empty">Paran bitti!</div>
+        <div className="header empty">
+          {TranslateHelper.translate("header_empty")}
+        </div>
+      )}
+      {!roots.admin && (
+        <>
+          <button
+            className="langChangeButton"
+            onClick={() => handleLangChange("tr")}
+          >
+            TR
+          </button>
+          <button
+            className="langChangeButton"
+            onClick={() => handleLangChange("en")}
+          >
+            EN
+          </button>
+        </>
       )}
     </React.Fragment>
   );

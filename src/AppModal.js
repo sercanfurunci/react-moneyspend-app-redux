@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSite } from "./context/SiteContext";
 import { Button, Modal, Checkbox } from "antd";
 import alertify from "alertifyjs";
+import TranslateHelper from "./helpers/translateHelper";
 
 const AppModal = () => {
   const { products, setProducts } = useSite();
@@ -58,36 +59,36 @@ const AppModal = () => {
   return (
     <React.Fragment>
       <Button type="primary" onClick={showModal}>
-        Ürün ekle
+        {TranslateHelper.translate("add_item")}
       </Button>
       <Modal
-        title="Ürün ekle"
+        title={TranslateHelper.translate("add_item")}
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}
         okButtonProps={{ disabled: !enabled }}
-        okText="Kaydet"
+        okText={TranslateHelper.translate("save")}
       >
         <form>
-          Ürünün adını giriniz:
+          {TranslateHelper.translate("product_name")}
           <input
-            placeholder="Ürün adı"
+            placeholder={TranslateHelper.translate("product_name")}
             type="text"
             defaultValue={name}
             onChange={(e) => setName(e.target.value)}
           />
-          Ürünün fiyatını giriniz:
+          {TranslateHelper.translate("product_value")}
           <input
-            placeholder="Ürün fiyatı $"
+            placeholder={TranslateHelper.translate("product_value")}
             type="text"
             min="0"
             defaultValue={id}
-            onChange={(e) => setId(e.target.value)}//Todo validation
+            onChange={(e) => setId(e.target.value)} //Todo validation
           />
-          Ürün görseli:
+          {TranslateHelper.translate("product_img")}
           <input type="file" onChange={(e) => setAvatar(e.target.files[0])} />
           <Checkbox checked={rule} onChange={(e) => setRule(e.target.checked)}>
-            Kuralları okudum, kabul ediyorum.
+            {TranslateHelper.translate("rules")}
           </Checkbox>
           {avatar && (
             <div>

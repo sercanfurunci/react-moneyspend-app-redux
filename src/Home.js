@@ -9,7 +9,6 @@ import { useSite } from "./context/SiteContext";
 import { useDispatch, useSelector } from "react-redux";
 import { setTotal } from "./store/actions/actions";
 
-
 export default function Home() {
   const { setProducts, products } = useSite();
 

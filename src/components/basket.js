@@ -1,10 +1,11 @@
 import React from "react";
 import BasketItem from "./basketItem";
-import { moneyFormat } from "../helpers";
+import { moneyFormat } from "../helpers/moneyHelper";
 import { useSite } from "../context/SiteContext";
 import { useSelector, useDispatch } from "react-redux";
 import { resetBasket } from "../store/actions/actions";
 import "../css/Basket.css";
+import TranslateHelper from "../helpers/translateHelper";
 
 function Basket() {
   const { products } = useSite();
@@ -16,7 +17,7 @@ function Basket() {
   return (
     <React.Fragment>
       <div className="basket-container container">
-        <h3>Alışveriş Detayları</h3>
+        <h3>{TranslateHelper.translate("shopping_details")}</h3>
         <ul>
           {baskets.basket?.map((item) => (
             <BasketItem
@@ -26,12 +27,12 @@ function Basket() {
             />
           ))}
         </ul>
-        <div className="total">Toplam: ${moneyFormat(roots.total)}</div>
+        <div className="total">{TranslateHelper.translate("total")} ${moneyFormat(roots.total)}</div>
         <button
           className="basket-reset-btn"
           onClick={() => dispatch(resetBasket())}
         >
-          Sepeti Sıfırla
+          {TranslateHelper.translate("reset_cart")}
         </button>
       </div>
     </React.Fragment>
