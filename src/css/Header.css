@@ -62,3 +62,11 @@ input {
     background: #3b5998;
     opacity: 0.6;
 }
+.langChangeButton {
+    display: block;
+    margin: 10px 0 0 15px;
+}
+.langChangeButton:hover {
+    cursor: pointer;
+    background-color: #b2bec3;
+}

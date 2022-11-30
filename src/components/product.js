@@ -1,9 +1,9 @@
 import React from "react";
-import { moneyFormat } from "../helpers";
+import { moneyFormat } from "../helpers/moneyHelper";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteBasket, addBasket,changeAmount } from "../store/actions/actions"
 import "../css/Product.css";
-
+import TranslateHelper from "../helpers/translateHelper";
 function Product({ product, setProducts, products }) {
   const roots = useSelector((state) => state.roots);
   const baskets =  useSelector(state=>state.baskets)
@@ -62,14 +62,14 @@ const handleChange =(product,targetValue)=>{
             disabled={!basketItem || basketItem.amount === 0}
             onClick={() => dispatch(deleteBasket(product.id))}
           >
-            Sell
+            {TranslateHelper.translate("sell")}
           </button>
           <span className="amount">
             <input
               type="text"
               min="0"
               value={(basketItem && basketItem.amount) || 0}
-              onChange={(e) => handleChange(product,e.target.value)}
+              onChange={(e) => handleChange(product, e.target.value)}
               disabled={roots.admin}
             />
           </span>
@@ -78,7 +78,7 @@ const handleChange =(product,targetValue)=>{
             disabled={roots.total + product.id > roots.money || roots.admin}
             onClick={() => dispatch(addBasket(product.id))}
           >
-            Buy
+            {TranslateHelper.translate("buy")}
           </button>
         </div>
       </div>

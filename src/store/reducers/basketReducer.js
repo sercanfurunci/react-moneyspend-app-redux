@@ -86,8 +86,6 @@ export const basketReducer = (state = initialState, action) => {
             };
           }
         } else return false;
-        if (checkBasket.amount === 0) {
-        }
       }
     case RESET_BASKET:
       return {
