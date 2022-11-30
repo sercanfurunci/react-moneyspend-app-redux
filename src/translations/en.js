@@ -1,0 +1,18 @@
+export const enMessages = {
+  header_input: "You have ${{leftMoney}} to spend.",
+  header_spend: "You have ${{leftMoney}} left to spend.",
+  header_empty: "You are out of money!",
+  reset_cart: "Reset Cart",
+  shopping_details: "Shopping Details.",
+  total: "Total:",
+  add_item: "Add Item",
+  product_name: "Product Name:",
+  product_value: "Product Value:",
+  product_img: "Product Image:",
+  rules: "I accept the terms in the license agreement.",
+  save: "Save",
+  login: "Login",
+  logout: "Logout",
+  sell: "Sell",
+  buy: "Buy",
+};
