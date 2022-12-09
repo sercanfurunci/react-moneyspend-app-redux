@@ -3,5 +3,5 @@ import rootReducer from "./rootReducer";
 
 
 export default function configureStore() {
-  return createStore(rootReducer);
+    return createStore(rootReducer);
 }

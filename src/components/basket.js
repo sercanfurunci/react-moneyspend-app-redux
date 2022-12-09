@@ -1,15 +1,13 @@
 import React from "react";
 import BasketItem from "./basketItem";
 import { moneyFormat } from "../helpers/moneyHelper";
-import { useSite } from "../context/SiteContext";
 import { useSelector, useDispatch } from "react-redux";
 import { resetBasket } from "../store/actions/actions";
 import "../css/Basket.css";
 import TranslateHelper from "../helpers/translateHelper";
 
 function Basket() {
-  const { products } = useSite();
-
+  const products = useSelector(state=>state.products)
   const dispatch = useDispatch();
   const roots = useSelector((state) => state.roots);
   const baskets = useSelector((state) => state.baskets);
@@ -23,7 +21,7 @@ function Basket() {
             <BasketItem
               key={item.id}
               item={item}
-              product={products.find((p) => p.id === item.id)}
+              product={products.productList.find((p) => p.id === item.id)}
             />
           ))}
         </ul>

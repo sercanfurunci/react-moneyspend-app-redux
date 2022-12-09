@@ -14,7 +14,6 @@ export const basketReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_BASKET:
       if (checkBasket) {
-        console.log("checked");
         checkBasket.amount += 1;
         return {
           ...state,
@@ -59,7 +58,6 @@ export const basketReducer = (state = initialState, action) => {
 
     case CHANGE_AMOUNT:
       const { id, targetValue, money, total } = action.payload;
-      console.log(action);
       if (targetValue * id > money - total) {
         alert("Paranız yetmiyor");
       } else {

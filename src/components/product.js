@@ -1,37 +1,42 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { moneyFormat } from "../helpers/moneyHelper";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteBasket, addBasket,changeAmount } from "../store/actions/actions"
+import {
+  deleteBasket,
+  addBasket,
+  changeAmount,
+} from "../store/actions/actions";
 import "../css/Product.css";
+import {setProduct} from "../store/actions/actions";
 import TranslateHelper from "../helpers/translateHelper";
-function Product({ product, setProducts, products }) {
+
+function Product({ product, products }) {
   const roots = useSelector((state) => state.roots);
-  const baskets =  useSelector(state=>state.baskets)
+  const baskets = useSelector((state) => state.baskets);
   const basketItem = baskets?.basket?.find((item) => item.id === product.id);
 
   const dispatch = useDispatch();
 
-
-const handleChange =(product,targetValue)=>{
-  const id = product.id
-  const money = roots.money
-  const total = roots.total
-  console.log(targetValue)
-  if( targetValue !== "-" && targetValue !== "" && targetValue >=0) {
-    dispatch(changeAmount({id,targetValue,money,total}))
-  }else{//kontrol yapılacak
-    alert("Giremezsin")
-    return false;
-  }
-
-}
-
+  const handleChange = (product, targetValue) => {
+    const id = product.id;
+    const money = roots.money;
+    const total = roots.total;
+    if (targetValue !== "-" && targetValue !== "" && targetValue >= 0) {
+        dispatch(changeAmount({ id, targetValue, money, total }));
+    } else {
+      //kontrol yapılacak
+      alert("Giremezsin");
+      return false;
+    }
+  };
 
   const removeProducts = () => {
-    setProducts(
-      products.filter((item) => {
-        return item.id !== product.id;
-      })
+    (dispatch(
+      setProduct(
+        products.filter((item) => {
+          return item.id !== product.id;
+        })
+      ))
     );
   };
 
@@ -52,8 +57,9 @@ const handleChange =(product,targetValue)=>{
           </button>
         )}
 
-        <img src={product?.url} alt="photo" />
-        <div className="itemName">{product?.title.slice(0, 12)}</div>
+
+        <img src={product.url} alt="photo" />
+        <div className="itemName">{product.title.slice(0, 12)}</div>
         <div className="price">$ {moneyFormat(product?.id)}</div>
 
         <div className="actions">

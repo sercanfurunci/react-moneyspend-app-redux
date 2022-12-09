@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { useSite } from "./context/SiteContext";
 import { Button, Modal, Checkbox } from "antd";
 import alertify from "alertifyjs";
 import TranslateHelper from "./helpers/translateHelper";
-
+import {useSelector, useDispatch} from "react-redux";
+import {addPhoto, setProduct} from "./store/actions/actions";
 const AppModal = () => {
-  const { products, setProducts } = useSite();
 
   const [id, setId] = useState("");
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState(false);
   const [image, setImage] = useState("");
   const [rule, setRule] = useState(true);
-
+  const products = useSelector(state=>state.products)
+  const dispatch = useDispatch()
   const enabled = avatar && rule;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -45,14 +45,15 @@ const AppModal = () => {
 
   const addTest = () => {
     // destruct
-    setProducts([
-      ...products,
-      {
-        id: Number(id),
-        title: name,
-        url: image,
-      },
-    ]);
+    dispatch(
+        addPhoto(
+          {
+            id: Number(id),
+            title: name,
+            url: image,
+          },
+        )
+    );
   };
 
 
