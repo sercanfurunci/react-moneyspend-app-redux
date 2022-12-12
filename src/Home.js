@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "./components/header";
 import Product from "./components/product";
 import Basket from "./components/basket";
@@ -7,16 +7,26 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setTotal } from "./store/actions/actions";
 import { createSelector } from "reselect";
-import {setProduct} from "./store/actions/actions";
+import { setProduct } from "./store/actions/actions";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 
 export default function Home() {
+  const { i18n } = useTranslation();
+  const handleLangChange = (lang) => {
+    i18n.changeLanguage(lang);
+  };
+
   const roots = useSelector((state) => state.roots);
   const baskets = useSelector((state) => state.baskets);
   const products = useSelector((state) => state.products);
 
+  const productList = products.productList;
+  const basket = baskets.basket;
+  const admin = roots.admin;
+  const total = roots.total;
+
   const dispatch = useDispatch();
-  console.log(products)
   const getData = async () => {
     const result = await axios("https://jsonplaceholder.typicode.com/photos");
     dispatch(setProduct(result.data));
@@ -27,36 +37,46 @@ export default function Home() {
   }, []);
 
   const totaliHesapla = () => {
-    const toplam = baskets.basket?.reduce((acc, item) => {
+    const toplam = basket.reduce((acc, item) => {
       return (
         acc +
-        item.amount * products.productList.find((product) => product.id === item.id).id
+        item.amount * productList.find((product) => product.id === item.id).id
       );
     }, 0);
 
     dispatch(setTotal(toplam));
   };
-console.log(products)
+
   useEffect(() => {
     totaliHesapla();
-  }, [baskets.basket]);
+  }, [basket]);
+
   return (
     <React.Fragment>
       <Header />
-
-      {roots.admin && <AppModal />}
+      {!admin && (
+        <>
+          <button
+            className="langChangeButton"
+            onClick={() => handleLangChange("tr")}
+          >
+            TR
+          </button>
+          <button
+            className="langChangeButton"
+            onClick={() => handleLangChange("en")}
+          >
+            EN
+          </button>
+        </>
+      )}
+      {admin && <AppModal />}
       <div className="container products">
-        {
-
-            products.productList.slice(4980).map((product) => (
-          <Product
-            key={product.id}
-            product={product}
-            products={products.productList}
-          />
+        {productList.slice(4980).map((product) => (
+          <Product key={product.id} product={product} products={productList} />
         ))}
       </div>
-      {roots.total > 0 && <Basket />}
+      {total > 0 && <Basket />}
     </React.Fragment>
   );
 }

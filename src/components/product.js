@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import { moneyFormat } from "../helpers/moneyHelper";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -8,9 +8,13 @@ import {
 } from "../store/actions/actions";
 import "../css/Product.css";
 import {setProduct} from "../store/actions/actions";
-import TranslateHelper from "../helpers/translateHelper";
+import {Button, Popconfirm, Space} from "antd";
+import { QuestionCircleOutlined } from "@ant-design/icons";
+import {useTranslation} from "react-i18next";
 
 function Product({ product, products }) {
+  const { t } = useTranslation();
+
   const roots = useSelector((state) => state.roots);
   const baskets = useSelector((state) => state.baskets);
   const basketItem = baskets?.basket?.find((item) => item.id === product.id);
@@ -44,17 +48,20 @@ function Product({ product, products }) {
     <React.Fragment>
       <div className="product">
         {roots.admin && (
-          <button
-            style={{
-              backgroundColor: "red",
-              width: "10px",
-              float: "right",
-              cursor: "pointer",
-            }}
-            onClick={removeProducts}
-          >
-            X
-          </button>
+            <>
+                <Popconfirm
+                    title={t("delete")}
+                    okText={t("yes")}
+                    cancelText={t("no")}
+                    onConfirm={removeProducts}
+                    icon={<QuestionCircleOutlined />}
+                >
+                  <Button type="primary" danger>
+                    {" "}
+                    x
+                  </Button>
+                </Popconfirm>
+            </>
         )}
 
 
@@ -68,7 +75,7 @@ function Product({ product, products }) {
             disabled={!basketItem || basketItem.amount === 0}
             onClick={() => dispatch(deleteBasket(product.id))}
           >
-            {TranslateHelper.translate("sell")}
+            {t("sell")}
           </button>
           <span className="amount">
             <input
@@ -84,7 +91,7 @@ function Product({ product, products }) {
             disabled={roots.total + product.id > roots.money || roots.admin}
             onClick={() => dispatch(addBasket(product.id))}
           >
-            {TranslateHelper.translate("buy")}
+            {t("buy")}
           </button>
         </div>
       </div>

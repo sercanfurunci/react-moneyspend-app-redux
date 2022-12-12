@@ -4,9 +4,11 @@ import { moneyFormat } from "../helpers/moneyHelper";
 import { useSelector, useDispatch } from "react-redux";
 import { resetBasket } from "../store/actions/actions";
 import "../css/Basket.css";
-import TranslateHelper from "../helpers/translateHelper";
+import {useTranslation} from "react-i18next";
 
 function Basket() {
+  const { t } = useTranslation();
+
   const products = useSelector(state=>state.products)
   const dispatch = useDispatch();
   const roots = useSelector((state) => state.roots);
@@ -15,7 +17,7 @@ function Basket() {
   return (
     <React.Fragment>
       <div className="basket-container container">
-        <h3>{TranslateHelper.translate("shopping_details")}</h3>
+        <h3>{t("shopping_details")}</h3>
         <ul>
           {baskets.basket?.map((item) => (
             <BasketItem
@@ -25,12 +27,12 @@ function Basket() {
             />
           ))}
         </ul>
-        <div className="total">{TranslateHelper.translate("total")} ${moneyFormat(roots.total)}</div>
+        <div className="total">{t("total")} ${moneyFormat(roots.total)}</div>
         <button
           className="basket-reset-btn"
           onClick={() => dispatch(resetBasket())}
         >
-          {TranslateHelper.translate("reset_cart")}
+          {t("reset_cart")}
         </button>
       </div>
     </React.Fragment>
