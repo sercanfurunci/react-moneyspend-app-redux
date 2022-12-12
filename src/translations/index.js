@@ -1,29 +1,17 @@
-import i18n from 'i18next';
+import i18next from "i18next";
+import { initReactI18next } from "react-i18next";
+import LanguageDetector from "i18next-browser-languagedetector";
 
-import {getLanguage} from "../helpers/systemConfigHelper";
+import { trMessages } from "./tr.js";
+import { enMessages } from "./en.js";
 
-import {trMessages} from './tr.js';
-import {enMessages} from './en.js';
-
-const language = getLanguage();
-
-i18n.init({
-    resources: {
-        en: {translations: {...enMessages}},
-        tr: {translations: {...trMessages}}
-    },
-    lng: language,
-    fallbackLng: language,
-    debug: false,
-    ns: ['translations'],
-    defaultNS: 'translations',
-    keySeparator: false,
-    interpolation: {
-        escapeValue: false
-    },
-    react: {
-        wait: true
-    }
-});
-
-export default i18n;
+i18next
+    .use(initReactI18next)
+    .use(LanguageDetector)
+    .init({
+        fallbackLng: "en",
+        resources: {
+            en: { translation: { ...enMessages } },
+            tr: { translation: { ...trMessages } },
+        },
+    });
