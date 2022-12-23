@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./components/header";
 import Product from "./components/product";
 import Basket from "./components/basket";
@@ -6,22 +6,17 @@ import AppModal from "./AppModal";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setTotal } from "./store/actions/actions";
-import { createSelector } from "reselect";
 import { setProduct } from "./store/actions/actions";
 import axios from "axios";
-import { useTranslation } from "react-i18next";
+import ChangeLanguageButton from "./components/utils/changeLanguage";
 
 export default function Home() {
-  const { i18n } = useTranslation();
-  const handleLangChange = (lang) => {
-    i18n.changeLanguage(lang);
-  };
-
   const roots = useSelector((state) => state.roots);
   const baskets = useSelector((state) => state.baskets);
   const products = useSelector((state) => state.products);
 
   const productList = products.productList;
+  console.log(productList);
   const basket = baskets.basket;
   const admin = roots.admin;
   const total = roots.total;
@@ -40,7 +35,8 @@ export default function Home() {
     const toplam = basket.reduce((acc, item) => {
       return (
         acc +
-        item.amount * productList.find((product) => product.id === item.id).id
+        item.amount *
+          productList.find((product) => product.id === item.id).price
       );
     }, 0);
 
@@ -56,18 +52,7 @@ export default function Home() {
       <Header />
       {!admin && (
         <>
-          <button
-            className="langChangeButton"
-            onClick={() => handleLangChange("tr")}
-          >
-            TR
-          </button>
-          <button
-            className="langChangeButton"
-            onClick={() => handleLangChange("en")}
-          >
-            EN
-          </button>
+          <ChangeLanguageButton />
         </>
       )}
       {admin && <AppModal />}
