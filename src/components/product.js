@@ -7,10 +7,11 @@ import {
   changeAmount,
 } from "../store/actions/actions";
 import "../css/Product.css";
-import {setProduct} from "../store/actions/actions";
-import {Button, Popconfirm, Space} from "antd";
-import { QuestionCircleOutlined } from "@ant-design/icons";
-import {useTranslation} from "react-i18next";
+import { setProduct } from "../store/actions/actions";
+import { Popconfirm } from "antd";
+import { DeleteOutlined, QuestionCircleOutlined } from "@ant-design/icons";
+import { useTranslation } from "react-i18next";
+import EditModal from "../EditModal";
 
 function Product({ product, products }) {
   const { t } = useTranslation();
@@ -26,7 +27,7 @@ function Product({ product, products }) {
     const money = roots.money;
     const total = roots.total;
     if (targetValue !== "-" && targetValue !== "" && targetValue >= 0) {
-        dispatch(changeAmount({ id, targetValue, money, total }));
+      dispatch(changeAmount({ id, targetValue, money, total }));
     } else {
       //kontrol yapılacak
       alert("Giremezsin");
@@ -35,12 +36,12 @@ function Product({ product, products }) {
   };
 
   const removeProducts = () => {
-    (dispatch(
+    dispatch(
       setProduct(
         products.filter((item) => {
           return item.id !== product.id;
         })
-      ))
+      )
     );
   };
 
@@ -48,26 +49,23 @@ function Product({ product, products }) {
     <React.Fragment>
       <div className="product">
         {roots.admin && (
-            <>
-                <Popconfirm
-                    title={t("delete")}
-                    okText={t("yes")}
-                    cancelText={t("no")}
-                    onConfirm={removeProducts}
-                    icon={<QuestionCircleOutlined />}
-                >
-                  <Button type="primary" danger>
-                    {" "}
-                    x
-                  </Button>
-                </Popconfirm>
-            </>
+          <>
+            <Popconfirm
+              title={t("delete")}
+              okText={t("yes")}
+              cancelText={t("no")}
+              onConfirm={removeProducts}
+              icon={<QuestionCircleOutlined style={{ color: "red" }} />}
+            >
+              <DeleteOutlined style={{ color: "red", fontSize: "20px" }} />
+            </Popconfirm>
+            <EditModal oldPhoto={product} />
+          </>
         )}
-
 
         <img src={product.url} alt="photo" />
         <div className="itemName">{product.title.slice(0, 12)}</div>
-        <div className="price">$ {moneyFormat(product?.id)}</div>
+        <div className="price">$ {moneyFormat(product?.price)}</div>
 
         <div className="actions">
           <button
@@ -88,7 +86,7 @@ function Product({ product, products }) {
           </span>
           <button
             className="buy-btn "
-            disabled={roots.total + product.id > roots.money || roots.admin}
+            disabled={roots.total + product.price > roots.money || roots.admin}
             onClick={() => dispatch(addBasket(product.id))}
           >
             {t("buy")}

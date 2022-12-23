@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setAdmin } from "../store/actions/actions";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { HomeOutlined } from "@ant-design/icons";
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -90,9 +91,10 @@ export default function Login() {
             {t("submit")}
           </Button>
         </Form.Item>
-        <Button type="danger" onClick={navigateHome}>
-          {t("homepage")}
-        </Button>
+        <HomeOutlined
+          style={{ color: "red", fontSize: "150%" }}
+          onClick={navigateHome}
+        />
       </Form>
     </div>
   );

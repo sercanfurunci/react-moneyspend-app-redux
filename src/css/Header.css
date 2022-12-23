@@ -16,35 +16,11 @@
     background: linear-gradient(to bottom, #b82020, #be1414);
 }
 
-.header .header-input {
-    border: 0;
-    padding: 0;
-    margin: 0;
-    color: white;
-    background: transparent;
-    font: 24px sans-serif;
-    font-weight: bold;
-    width: 150px;
-}
 
 .header span {
     margin: 0 10px;
     font-weight: bold;
 }
-
-input {
-    text-align: center;
-    padding: 9px 12px;
-    border-radius: 3px;
-    border: 1px solid #b2bec3;
-    color: #333;
-    width: 100%;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-
-
 
 .admin button {
     width: 130px;
@@ -59,14 +35,12 @@ input {
     cursor: pointer;
 }
 
-.admin button:hover {
-    background: #3b5998;
-    opacity: 0.6;
-}
+
 .langChangeButton {
     display: block;
     margin: 10px 0 0 15px;
 }
+
 .langChangeButton:hover {
     cursor: pointer;
     background-color: #b2bec3;

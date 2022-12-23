@@ -6,6 +6,7 @@ export const CHANGE_AMOUNT = "CHANGE_AMOUNT";
 export const RESET_BASKET = "RESET_BASKET";
 export const SET_PRODUCT = "SET_PRODUCT";
 export const ADD_PHOTO = "ADD_PHOTO";
+export const EDIT_PRODUCT = "EDIT_PRODUCT";
 
 export const setTotal = (data) => ({
   type: SET_TOTAL,
@@ -40,5 +41,10 @@ export const setProduct = (data) => ({
 
 export const addPhoto = (data)=>({
   type:ADD_PHOTO,
+  payload:data
+})
+
+export const editProduct = (data)=>({
+  type:EDIT_PRODUCT,
   payload:data
 })

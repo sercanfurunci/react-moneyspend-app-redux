@@ -1,10 +1,9 @@
 import { Button, Form, Input, Modal, Upload } from "antd";
-
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addPhoto } from "./store/actions/actions";
+import { editProduct } from "./store/actions/actions";
 import { useTranslation } from "react-i18next";
-import { FileAddOutlined } from "@ant-design/icons";
+import { EditOutlined } from "@ant-design/icons";
 
 const getBase64 = (file) =>
   new Promise((resolve, reject) => {
@@ -14,7 +13,7 @@ const getBase64 = (file) =>
     reader.onerror = (error) => reject(error);
   });
 
-export default function AppModal() {
+export default function EditModal({ oldPhoto }) {
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
@@ -51,8 +50,8 @@ export default function AppModal() {
 
   const formSubmitHandler = () => {
     dispatch(
-      addPhoto({
-        id: Number(new Date()),
+      editProduct({
+        id: oldPhoto.id,
         price: Number(id),
         title: name,
         url: imageInfos.src,
@@ -86,15 +85,13 @@ export default function AppModal() {
 
   return (
     <>
-      <div onClick={showModal} style={{cursor:"pointer",backgroundColor:"aqua",color:"black",width:"100px"}}>
-        <FileAddOutlined
-          style={{ fontSize: "16px", color: "black", paddingLeft: "20px" }}
-        />
-        {t("add_item")}
-      </div>
+      <EditOutlined
+        style={{ color: "green", float: "right", fontSize: "20px" }}
+        onClick={showModal}
+      />
 
       <Modal
-        title={t("add_item")}
+        title={t("edit")}
         open={isModalOpen}
         footer={null}
         onCancel={handleCancel}
@@ -125,7 +122,10 @@ export default function AppModal() {
               },
             ]}
           >
-            <Input onChange={(e) => setName(e.target.value)} />
+            <Input
+              defaultValue={oldPhoto.title}
+              onChange={(e) => setName(e.target.value)}
+            />
           </Form.Item>
           <Form.Item
             name="id"
@@ -136,7 +136,7 @@ export default function AppModal() {
               },
             ]}
           >
-            <Input onChange={onChangeId} />
+            <Input defaultValue={oldPhoto.price} onChange={onChangeId} />
           </Form.Item>
           <Form.Item
             rules={[
@@ -148,6 +148,7 @@ export default function AppModal() {
             label={t("product_img")}
           >
             <Upload
+              defaultFileList={oldPhoto.url}
               multiple={false}
               listType="picture-card"
               fileList={imageList}
@@ -165,7 +166,7 @@ export default function AppModal() {
             }}
           >
             <Button type="primary" htmlType="submit">
-              {t("upload")}
+              {t("update")}
             </Button>
           </Form.Item>
         </Form>
