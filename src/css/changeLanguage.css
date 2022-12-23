@@ -1,0 +1,29 @@
+.buttons{
+
+    padding: 1rem;
+    display: flex;
+    justify-content: end;
+    gap:0.5rem;
+
+}
+.change_button{
+    cursor: pointer;
+    width: 40px;
+    padding: 0;
+    border: 1px solid gray;
+
+}
+.change_button:hover{
+    scale: 1.05;
+}
+.change_button:disabled{
+    opacity: 0.5;
+    cursor: auto;
+}
+.change_button:disabled:hover{
+    scale: none;
+}
+.change_button img{
+    width: 100%;
+    height: 100%;
+}
