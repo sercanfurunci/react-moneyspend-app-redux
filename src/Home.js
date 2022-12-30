@@ -7,7 +7,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setTotal } from "./store/actions/actions";
 import { setProduct } from "./store/actions/actions";
-import axios from "axios";
 import ChangeLanguageButton from "./components/utils/changeLanguage";
 import { Pagination } from "antd";
 
