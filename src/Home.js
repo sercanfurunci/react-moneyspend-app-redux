@@ -16,7 +16,6 @@ export default function Home() {
   const products = useSelector((state) => state.products);
   const productList = products.productList;
 
-  console.log(productList.length);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [postPerPage] = useState(20);
