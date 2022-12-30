@@ -4,12 +4,11 @@ import App from "./App";
 import "./index.css";
 import "alertifyjs/build/css/alertify.css";
 import "antd/dist/antd.min.css";
+import {store} from "./store/configureStore";
 import { Provider } from "react-redux";
-import configureStore from "./store/configureStore";
 import { BrowserRouter } from "react-router-dom";
 import "./translations";
 
-const store = configureStore();
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>

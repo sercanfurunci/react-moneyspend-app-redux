@@ -1,4 +1,4 @@
-import React from "react";
+import React, {memo} from "react";
 import { moneyFormat } from "../helpers/moneyHelper";
 import { useDispatch, useSelector } from "react-redux";
 import { setAdmin } from "../store/actions/actions";
@@ -46,4 +46,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default memo(Header);

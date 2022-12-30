@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const SET_TOTAL = "SET_TOTAL";
 export const SET_ADMIN = "SET_ADMIN";
 export const ADD_BASKET = "ADD_BASKET";
@@ -34,17 +36,22 @@ export const resetBasket = () => ({
   type: RESET_BASKET,
 });
 
-export const setProduct = (data) => ({
-  type: SET_PRODUCT,
+export const setProduct = () => {
+  return async function (dispatch) {
+    const { data } = await axios.get(
+      "https://jsonplaceholder.typicode.com/photos"
+    );
+
+    dispatch({ type: SET_PRODUCT, payload: data });
+  };
+};
+
+export const addPhoto = (data) => ({
+  type: ADD_PHOTO,
   payload: data,
 });
 
-export const addPhoto = (data)=>({
-  type:ADD_PHOTO,
-  payload:data
-})
-
-export const editProduct = (data)=>({
-  type:EDIT_PRODUCT,
-  payload:data
-})
+export const editProduct = (data) => ({
+  type: EDIT_PRODUCT,
+  payload: data,
+});
