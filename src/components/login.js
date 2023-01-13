@@ -18,7 +18,6 @@ export default function Login() {
     dispatch(setAdmin());
   };
   useEffect(() => {
-    console.log("admin render")
     if (roots.admin) {
       navigate("/");
     }

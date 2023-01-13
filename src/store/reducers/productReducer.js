@@ -23,7 +23,7 @@ export const productReducer = (state = initialState, action) => {
 
 
     case ADD_PHOTO:
-      console.log(action.payload)
+
       return {
         ...state,
         productList: [
@@ -37,10 +37,9 @@ export const productReducer = (state = initialState, action) => {
         ],
       };
     case EDIT_PRODUCT:
-      console.log(action);
+
       const newPhotos = state.productList.map((photo) => {
         if (photo.id === action.payload.id) {
-          console.log("girdi");
           return {
             ...photo,
             price: action.payload.price,
